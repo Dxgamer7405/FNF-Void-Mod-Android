@@ -121,7 +121,7 @@ class Cutscene1SubState extends MusicBeatState
 
 	}
 
-	override function (elapsed:Float)
+	override function update(elapsed:Float)
 	{
 	  #if android
     var justTouched:Bool = false;
