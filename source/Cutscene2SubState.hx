@@ -114,7 +114,18 @@ class Cutscene2SubState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-		if (controls.ACCEPT)
+	  #if android
+    var justTouched:Bool = false;
+    for (touch in FlxG.touches.list)
+    {
+    if (touch.justPressed)
+    {
+    justTouched = true;
+    }
+    }
+    #end
+	  
+		if (controls.ACCEPT #if android || justTouched #end)
 		{
 			transIn = FlxTransitionableState.defaultTransIn;
 			transOut = FlxTransitionableState.defaultTransOut;
